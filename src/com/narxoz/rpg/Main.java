@@ -61,18 +61,28 @@ public class Main {
         // -----------------------------------------------------------------------
         System.out.println("\n--- Defense Chain Demo ---");
 
-        // Build a standalone chain to prove it works independently.
-        DefenseHandler dodge = new DodgeHandler(0.50, 99L);
+        ArenaFighter chainDemoHero = new ArenaFighter("Chain Tester", 100, 0.20, 25, 5, 18, 3);
+
+        // First run: force the attack through the full chain so reduced damage is visible.
+        DefenseHandler dodge = new DodgeHandler(0.0, 99L);
         DefenseHandler block = new BlockHandler(0.30);
         DefenseHandler armor = new ArmorHandler(5);
         DefenseHandler hp    = new HpHandler();
         dodge.setNext(block).setNext(armor).setNext(hp);
 
         System.out.println("Sending 20 incoming damage through the defense chain...");
-        System.out.println("Hero HP before: " + hero.getHealth());
-        // TODO: Route 20 points of incoming damage through the chain.
-        dodge.handle(20, hero);
-        System.out.println("Hero HP after:  " + hero.getHealth());
+        System.out.println("Hero HP before: " + chainDemoHero.getHealth());
+        dodge.handle(20, chainDemoHero);
+        System.out.println("Hero HP after:  " + chainDemoHero.getHealth());
+
+        // Second run: use a guaranteed dodge to show that the chain can stop early.
+        DefenseHandler dodgeOnly = new DodgeHandler(1.0, 99L);
+        dodgeOnly.setNext(new BlockHandler(0.30)).setNext(new ArmorHandler(5)).setNext(new HpHandler());
+
+        System.out.println("\nSending another 20 damage into a guaranteed dodge...");
+        System.out.println("Hero HP before: " + chainDemoHero.getHealth());
+        dodgeOnly.handle(20, chainDemoHero);
+        System.out.println("Hero HP after:  " + chainDemoHero.getHealth());
 
         // -----------------------------------------------------------------------
         // Part 3 — Full Tournament Demo
