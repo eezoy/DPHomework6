@@ -1,17 +1,8 @@
 package com.narxoz.rpg.tournament;
 
-import com.narxoz.rpg.arena.ArenaFighter;
-import com.narxoz.rpg.arena.ArenaOpponent;
-import com.narxoz.rpg.arena.TournamentResult;
-import com.narxoz.rpg.chain.ArmorHandler;
-import com.narxoz.rpg.chain.BlockHandler;
-import com.narxoz.rpg.chain.DefenseHandler;
-import com.narxoz.rpg.chain.DodgeHandler;
-import com.narxoz.rpg.chain.HpHandler;
-import com.narxoz.rpg.command.ActionQueue;
-import com.narxoz.rpg.command.AttackCommand;
-import com.narxoz.rpg.command.DefendCommand;
-import com.narxoz.rpg.command.HealCommand;
+import com.narxoz.rpg.arena.*;
+import com.narxoz.rpg.chain.*;
+import com.narxoz.rpg.command.*;
 import java.util.Random;
 
 public class TournamentEngine {

@@ -1,8 +1,6 @@
 package com.narxoz.rpg.arena;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class TournamentResult {
     private String winner;

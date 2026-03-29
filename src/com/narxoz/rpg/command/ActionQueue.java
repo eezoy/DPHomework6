@@ -1,7 +1,6 @@
 package com.narxoz.rpg.command;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ActionQueue {
     private final List<ActionCommand> queue = new ArrayList<>();
